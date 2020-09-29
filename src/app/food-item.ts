@@ -4,7 +4,7 @@ export class MenuItem{
     price: number;
     isActive: boolean;
     category: string;
-    isFreeDelivery: boolean;
-    launchDate: Date;
+    freeDelv: boolean;
+    DOL: Date;
     imageURL: string;
 }

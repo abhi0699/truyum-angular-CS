@@ -17,12 +17,6 @@ export class CartService {
     this.cartMap = new Map<number, Cart>();
   }
 
-  getCartItems(userId: number): Map<number, Cart> {
-    this.generateCart();
-    this.userId = userId;
-    return this.cartMap;
-  }
-
   generateCart(): void {
 
     let cartItemList = this.foodService.cartMenuItemList;
@@ -38,6 +32,11 @@ export class CartService {
       this.foodService.cartMenuItemList = new Array<MenuItem>();
     }
 
+  }
+  getCartItems(userId: number): Map<number, Cart> {
+    this.generateCart();
+    this.userId = userId;
+    return this.cartMap;
   }
 
   deleteFromCart(itemId: number): void{

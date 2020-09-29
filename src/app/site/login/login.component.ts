@@ -12,24 +12,23 @@ import { User } from '../user';
 export class LoginComponent implements OnInit {
 
   user: User;
-  isCartError: boolean;
-  isLoginError: boolean;
+  CartError: boolean;
+  LoginError: boolean;
 
   constructor(private authService: AuthService, private route: Router, private cartError?: ActivatedRoute) { 
     this.user = new User();
-    this.isCartError = false;
+    this.CartError = false;
       if(cartError.snapshot.paramMap.get('cartError')=='carterror'){
-        this.isCartError = true;
+        this.CartError = true;
       }
   }
 
   login(loginForm: NgForm){
     this.authService.authenciateUser(this.user);
     if(this.authService.loggedInUser!=undefined){
-      console.log(this.authService.loggedInUser);
       this.route.navigateByUrl('/menu-item-list');
     }else
-      this.isLoginError = true;
+      this.LoginError = true;
   }
 
   ngOnInit(): void {

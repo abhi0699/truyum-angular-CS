@@ -15,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
 
   cart: Cart;
   user: User;
-  isDeleted: boolean;
+  deleted: boolean;
 
   constructor(private cartService: CartService, private authService: AuthService, private route: Router) { 
     this.cart = new Cart();
@@ -23,7 +23,6 @@ export class ShoppingCartComponent implements OnInit {
     let cartMap = cartService.getCartItems(1);
     if(cartMap.size!=0)
     this.cart = cartMap.get(1);
-    console.log(cartMap);
     this.user = authService.loggedInUser;
   }
 
@@ -32,8 +31,7 @@ export class ShoppingCartComponent implements OnInit {
     let cartMap = this.cartService.getCartItems(1);
     if(cartMap.size!=0)
     this.cart = cartMap.get(1);
-    console.log(cartMap);
-    this.isDeleted = true;
+    this.deleted = true;
     
   }
   ngOnInit(): void {

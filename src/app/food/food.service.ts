@@ -15,7 +15,6 @@ export class FoodService{
 
   constructor() {
     this.menuItemList = new Array<MenuItem>();
-    console.log(this.editedMenuItems);
     this.getFoodItems();
     this.searchItemList = new Array<MenuItem>();
   }
@@ -27,7 +26,6 @@ export class FoodService{
       let tempFoodName = menu.foodName.toUpperCase();
       if (tempFoodName.startsWith(name)) {
         this.searchItemList.push(menu);
-        console.log('break');
         break;
       }
       else {
@@ -39,9 +37,9 @@ export class FoodService{
 
   getItemById(itemId: number): MenuItem{
     let menuItem: MenuItem;
-    this.menuItemList.forEach(i =>{
-      if(i.itemId==itemId){
-        menuItem = i;
+    this.menuItemList.forEach(x =>{
+      if(x.itemId==itemId){
+        menuItem = x;
       }
     });
     return menuItem;
@@ -50,17 +48,15 @@ export class FoodService{
   setItem(item: MenuItem){
     this.editedMenuItems = new Array<MenuItem>();
     let menuItems: Array<MenuItem> = new Array<MenuItem>();
-    this.menuItemList.forEach(i =>{
+    this.menuItemList.forEach(x =>{
       
-      if(i.itemId==item.itemId){
+      if(x.itemId==item.itemId){
         menuItems.push(item);
       }else{
-        menuItems.push(i);
+        menuItems.push(x);
       }
     });
     this.editedMenuItems = menuItems;
-    console.log(this.menuItemList);
-    console.log(this.editedMenuItems);
   }
 
   getFoodItems(): Array<MenuItem> {
@@ -74,8 +70,8 @@ export class FoodService{
     menuItem.isActive = true;
     menuItem.price = 99;
     menuItem.category = 'Main Course';
-    menuItem.isFreeDelivery = true;
-    menuItem.launchDate = new Date('2017-03-15');
+    menuItem.freeDelv = true;
+    menuItem.DOL = new Date('2017-03-15');
     menuItem.imageURL = 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80';
     this.menuItemList.push(menuItem);
 
@@ -85,8 +81,8 @@ export class FoodService{
     menuItem.isActive = true;
     menuItem.price = 149;
     menuItem.category = 'Main Course';
-    menuItem.isFreeDelivery = false;
-    menuItem.launchDate = new Date('2017-12-23');
+    menuItem.freeDelv = false;
+    menuItem.DOL = new Date('2017-12-23');
     menuItem.imageURL = 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80';
     this.menuItemList.push(menuItem);
 
@@ -96,8 +92,8 @@ export class FoodService{
     menuItem.isActive = true;
     menuItem.price = 129;
     menuItem.category = 'Main Course';
-    menuItem.isFreeDelivery = false;
-    menuItem.launchDate = new Date('2017-08-21');
+    menuItem.freeDelv = false;
+    menuItem.DOL = new Date('2017-08-21');
     menuItem.imageURL = 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80';
     this.menuItemList.push(menuItem);
 
@@ -107,21 +103,21 @@ export class FoodService{
     menuItem.isActive = false;
     menuItem.price = 57;
     menuItem.category = 'Starter';
-    menuItem.isFreeDelivery = true;
-    menuItem.launchDate = new Date('2017-07-02');
+    menuItem.freeDelv = true;
+    menuItem.DOL = new Date('2017-07-02');
     menuItem.imageURL = 'https://images.unsplash.com/photo-1526230427044-d092040d48dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80';
     this.menuItemList.push(menuItem);
 
-    // menuItem = new MenuItem();
-    // menuItem.itemId = 5;
-    // menuItem.foodName = 'Chocolate Brownie';
-    // menuItem.isActive = true;
-    // menuItem.price = 32;
-    // menuItem.category = 'Dessert';
-    // menuItem.isFreeDelivery = true;
-    // menuItem.launchDate = new Date('2019-11-02');
-    // menuItem.imageURL = 'https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=730&q=80';
-    // this.menuItemList.push(menuItem);
+    menuItem = new MenuItem();
+    menuItem.itemId = 5;
+    menuItem.foodName = 'Chocolate Brownie';
+    menuItem.isActive = true;
+    menuItem.price = 32;
+    menuItem.category = 'Dessert';
+    menuItem.freeDelv = true;
+    menuItem.DOL = new Date('2019-11-02');
+    menuItem.imageURL = 'https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=730&q=80';
+    this.menuItemList.push(menuItem);
 
     return this.menuItemList;
   }
@@ -129,13 +125,11 @@ export class FoodService{
   addToCart(itemId: number, userId: number): void {
     if(this.cartMenuItemList==undefined)
     this.cartMenuItemList = new Array<MenuItem>();
-    console.log('addtocart food service');
     this.userId = userId;
     this.menuItemList.forEach(item => {
       if (item.itemId == itemId)
         this.cartMenuItemList.push(item);
     });
-    console.log(this.cartMenuItemList);
   }
 
   

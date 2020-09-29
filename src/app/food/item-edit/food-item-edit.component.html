@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a [routerLink]="['/menu-item-list']" class="nav-link text-light">Menu Items</a>
             </li>
-            <li  class="nav-item d-inline"><a *ngIf="user!=undefined && !user.isAdmin" [routerLink]="['/cart']" class="nav-link text-light">Cart</a>
+            <li  class="nav-item d-inline"><a *ngIf="user!=undefined && !user.admin" [routerLink]="['/cart']" class="nav-link text-light">Cart</a>
             </li>
             <li  class="nav-item d-inline"><a *ngIf="user!=undefined else anonymous2"  class="nav-link text-light">
                     <span class="material-icons align-middle">
@@ -70,12 +70,12 @@
                     </div>
                     <div class="col-lg-3 pt-1 pb-1">
                         <label for="dateOfLaunch">Date of Launch</label>
-                        <input type="text" name="launchDate" id="launchDate" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" class="form-control" required [(ngModel)]="dateString" #launchDate="ngModel">
-                        <div *ngIf="launchDate.touched && launchDate.dirty && !launchDate.pristine">
-                            <span class="small text-danger" *ngIf="launchDate.errors?.required">Date is required</span>
+                        <input type="text" name="DOL" id="DOL" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" class="form-control" required [(ngModel)]="date" #DOL="ngModel">
+                        <div *ngIf="DOL.touched && DOL.dirty && !DOL.pristine">
+                            <span class="small text-danger" *ngIf="DOL.errors?.required">Date is required</span>
                         </div>
-                        <div *ngIf="launchDate.touched && launchDate.dirty && !launchDate.pristine">
-                            <span class="small text-danger" *ngIf="launchDate.errors?.pattern">Wrong date format</span>
+                        <div *ngIf="DOL.touched && DOL.dirty && !DOL.pristine">
+                            <span class="small text-danger" *ngIf="DOL.errors?.pattern">Wrong date format</span>
                         </div>
                     </div>
                     <div class="col-lg-3 pt-1 pb-1">
@@ -106,7 +106,7 @@
                 <div class="row pt-2 pb-2">
                     <div class="col-lg-3 pt-1 pb-1">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="isFreeDelivery" id="freedelivery" class="custom-control-input" [(ngModel)]="foodItem.isFreeDelivery">
+                            <input type="checkbox" name="freeDelv" id="freedelivery" class="custom-control-input" [(ngModel)]="foodItem.freeDelv">
                             <label for="freedelivery" class="custom-control-label">
                                 Free Delivery
                             </label>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="row pt-2 pb-2">
                     <div class="col-lg-3 pt-1 pb-1">
-                        <button [disabled]="editItem.invalid" class="btn btn-accent">Save</button>
+                        <button [disabled]="editItem.invalid" class="btn" style="background-color: orangered;">Save</button>
                     </div>
                 </div>
             </form>

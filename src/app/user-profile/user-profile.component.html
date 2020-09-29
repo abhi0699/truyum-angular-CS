@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark accent">
+<nav class="navbar navbar-expand-md navbar-dark " style="background-color: orangered;">
     <a [routerLink]="['/menu-item-list']" class="navbar-brand">
         <span class="material-icons align-middle">restaurant_menu</span>truYum
     </a>
@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a [routerLink]="['/menu-item-list']" class="nav-link text-light">Menu Items</a>
             </li>
-            <li *ngIf="!user.isAdmin" class="nav-item"><a [routerLink]="['/cart']" class="nav-link text-light">Cart</a>
+            <li *ngIf="!user.admin" class="nav-item"><a [routerLink]="['/cart']" class="nav-link text-light">Cart</a>
             </li>
             <li class="nav-item"><a href="/logged-in-admin.html" class="nav-link text-light">
                     <span class="material-icons align-middle">
@@ -32,8 +32,8 @@
                     <div class="card-body">
                       <h5 class="card-title">{{user.userName}}</h5>
                       <p class="card-text">Name : {{user.firstName+' '+user.lastName}}</p>
-                      <p class="card-text" *ngIf="user.isAdmin"><small class="text-muted">Admin</small></p>
-                      <p class="card-text" *ngIf="!user.isAdmin"><small class="text-muted">Customer</small></p>
+                      <p class="card-text" *ngIf="user.admin"><small class="text-muted">Admin</small></p>
+                      <p class="card-text" *ngIf="!user.admin"><small class="text-muted">Customer</small></p>
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
 
 
 <footer class="footer">
-    <div class="container-fluid accent text-light">
+    <div class="container-fluid text-light" style="background-color: orangered;">
         <p class="m-0">Copyright 2020</p>
     </div>
 </footer>

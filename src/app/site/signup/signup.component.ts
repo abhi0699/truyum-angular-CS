@@ -33,12 +33,11 @@ export class SignupComponent implements OnInit {
   }
 
   createUser(newUser: FormGroup): void{
-    console.log('hi');
     this.user.userName = newUser.controls['userName'].value;
     this.user.firstName = newUser.controls['firstName'].value;
     this.user.lastName = newUser.controls['lastName'].value;
     this.user.password = newUser.controls['password'].value;
-    this.user.isAdmin = false;
+    this.user.admin = false;
     this.userService.addUser(this.user);
     this.route.navigateByUrl('/login');
   }

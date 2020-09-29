@@ -17,14 +17,14 @@ import { User } from 'src/app/site/user';
 export class FoodItemEditComponent implements OnInit {
 
   foodItem: MenuItem;
-  dateString: string;
+  date: string;
   inStock: string;
   user: User;
 
   constructor(private param: ActivatedRoute, private foodService: FoodService, public datepipe: DatePipe, private route: Router,  private authService: AuthService) {
       let itemId: any = param.snapshot.paramMap.get('itemId');
      this.foodItem = foodService.getItemById(itemId as number);
-     this.dateString = this.datepipe.transform(this.foodItem.launchDate, 'dd/MM/yyyy');
+     this.date = this.datepipe.transform(this.foodItem.DOL, 'dd/MM/yyyy');
      this.user = authService.loggedInUser;
      if(this.foodItem.isActive)
       this.inStock = 'true';
@@ -38,17 +38,11 @@ export class FoodItemEditComponent implements OnInit {
   }
 
   saveChanges(form: NgForm): void{
-    alert('form submitted successfully');
-    this.foodItem.launchDate = new Date(this.reverse(this.dateString));
+    alert('Form submitted Successfully');
+    this.foodItem.DOL = new Date(this.date);
     this.foodItem.isActive = this.inStock=='true'?true:false;
     this.foodService.setItem(this.foodItem);
-    console.log(this.foodItem);
     this.route.navigateByUrl('/menu-item-list');
-
-  }
-
-  reverse(str: string): string{
-    return str.split("/").reverse().join('-');
   }
 
 }

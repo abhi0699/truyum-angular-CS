@@ -11,7 +11,6 @@ export class UserService {
   constructor() {
     this.userList = new Array<User>();
     this.generateUserList();
-    console.log(this.userList);
 
   }
 
@@ -21,7 +20,7 @@ export class UserService {
     user.firstName = 'Abhishek';
     user.lastName = 'Divecha';
     user.password = 'divecha10';
-    user.isAdmin = true;
+    user.admin = true;
     this.userList.push(user);
 
     user = new User();
@@ -29,20 +28,35 @@ export class UserService {
     user.firstName = 'Kushagra';
     user.lastName = 'Dash';
     user.password = 'kd2909';
-    user.isAdmin = false;
+    user.admin = false;
+    this.userList.push(user);
+
+    user = new User();
+    user.userName = 'login';
+    user.firstName = 'Guest1';
+    user.lastName = '1';
+    user.password = 'password1';
+    user.admin = false;
+    this.userList.push(user);
+
+    user = new User();
+    user.userName = 'login';
+    user.firstName = 'Guest';
+    user.lastName = '2';
+    user.password = 'password';
+    user.admin = false;
     this.userList.push(user);
   }
 
   addUser(user: User): void {
     this.userList.push(user);
-    console.log(this.userList);
   }
 
   getUser(userName: string): User {
     let user: User = new User();
-    this.userList.forEach(u => {
-      if (u.userName == userName)
-        user = u;
+    this.userList.forEach(x => {
+      if (x.userName == userName)
+        user = x;
     });
     return user;
   }
