@@ -33,17 +33,11 @@ export class CartService {
     }
 
   }
-  getCartItems(userId: number): Map<number, Cart> {
-    this.generateCart();
-    this.userId = userId;
-    return this.cartMap;
-  }
-
   deleteFromCart(itemId: number): void{
     let newList: Array<MenuItem> = new Array<MenuItem>();
-    this.cart.menuItemList.forEach(m => {
-      if(m.itemId!=itemId)
-        newList.push(m);
+    this.cart.menuItemList.forEach(x => {
+      if(x.itemId!=itemId)
+        newList.push(x);
     });
     this.cart.menuItemList = new Array<MenuItem>();
     this.cart.menuItemList = newList;
@@ -53,4 +47,9 @@ export class CartService {
     this.cartMap.set(this.userId, this.cart);
   }
 
+  getCartItems(userId: number): Map<number, Cart> {
+    this.generateCart();
+    this.userId = userId;
+    return this.cartMap;
+  }
 }

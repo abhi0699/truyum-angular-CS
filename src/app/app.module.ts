@@ -16,7 +16,7 @@ import { DatePipe } from '@angular/common';
 import { SignupComponent } from './site/signup/signup.component';
 import { LoginComponent } from './site/login/login.component';
 import { SignoutComponent } from './site/signout/signout.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +28,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     FoodItemEditComponent,
     SignupComponent,
     LoginComponent,
-    SignoutComponent,
-    UserProfileComponent
+    SignoutComponent
   ],
   imports: [
     BrowserModule,

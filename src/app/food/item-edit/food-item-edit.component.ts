@@ -4,10 +4,8 @@ import { MenuItem } from 'src/app/food-item';
 import { FoodService } from '../food.service';
 import { DatePipe } from '@angular/common';
 import { NgForm } from '@angular/forms';
-import { stringify } from 'querystring';
 import { AuthService } from 'src/app/site/auth.service';
 import { User } from 'src/app/site/user';
-
 
 @Component({
   selector: 'app-food-item-edit',

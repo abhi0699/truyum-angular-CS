@@ -1,6 +1,5 @@
-.delete:hover{
-    cursor: pointer;
-    color: red ;
+.btn.btn-light.btn-search:hover{
+    background-color: white;
 }
 .btn.btn-light.btn-search.rounded-left{
     border-top-right-radius: 0%;
@@ -12,10 +11,11 @@
     background-color: white;
     opacity: 100% ;
 }
-.btn.btn-light.btn-search:hover{
-    background-color: white;
+.delete:hover{
+    cursor: pointer;
+    color: red ;
 }
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 800px){
 .form-control.search{
     float: left ;
     border-top-left-radius: 0% ;
@@ -41,17 +41,9 @@
     width: 80% ;
     height: 100%;
 }
-}
-.custom-control-input:checked~.custom-control-label::before {
-    color: white ;
-    border-color: orangered;
-    background-color:orangered ;
-}
-
-
 .container-fluid.findfood{
-        padding-top:5.0%;
-
+    padding-top:5.0%;
+}
 }
 @media only screen and (min-width: 800px){
 .header{
@@ -80,8 +72,10 @@
 .text-blue{
     color:blue;
 }
-.img-fluid{
-    width: 300px ;
+.custom-control-input:checked~.custom-control-label::before {
+    color: white ;
+    border-color: orangered;
+    background-color:orangered ;
 }
 .tiny{
     font-size: 10px;

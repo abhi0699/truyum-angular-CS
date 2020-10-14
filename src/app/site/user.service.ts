@@ -33,7 +33,7 @@ export class UserService {
 
     user = new User();
     user.userName = 'login';
-    user.firstName = 'Guest1';
+    user.firstName = 'Guest';
     user.lastName = '1';
     user.password = 'password1';
     user.admin = false;

@@ -6,7 +6,6 @@ import { ShoppingCartComponent } from './shopping/cart/shopping-cart.component';
 import { LoginComponent } from './site/login/login.component';
 import { SignoutComponent } from './site/signout/signout.component';
 import { SignupComponent } from './site/signup/signup.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: 'menu-item-list', component: FoodMenuComponent},
@@ -16,7 +15,6 @@ const routes: Routes = [
   {path: 'login/:cartError', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sign-out', component: SignoutComponent},
-  {path: 'user/:userName', component: UserProfileComponent},
   {path: '', redirectTo:'/menu-item-list', pathMatch: 'full'}
 ];
 
