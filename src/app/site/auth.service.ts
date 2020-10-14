@@ -13,7 +13,7 @@ export class AuthService {
   this.userList = new Array<User>();
   }
 
-  authenciateUser(user: User) {
+  authenticateUser(user: User) {
     this.userList = this.userService.userList;
     if(this.userList!=undefined)
     this.userList.forEach(u => {

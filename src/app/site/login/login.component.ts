@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(loginForm: NgForm){
-    this.authService.authenciateUser(this.user);
+    this.authService.authenticateUser(this.user);
     if(this.authService.loggedInUser!=undefined){
       this.route.navigateByUrl('/menu-item-list');
     }else
