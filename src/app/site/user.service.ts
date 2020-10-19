@@ -24,10 +24,10 @@ export class UserService {
     this.userList.push(user);
 
     user = new User();
-    user.userName = 'dash20';
+    user.userName = 'dash2709';
     user.firstName = 'Kushagra';
     user.lastName = 'Dash';
-    user.password = 'kd2909';
+    user.password = 'kush27';
     user.admin = false;
     this.userList.push(user);
 
